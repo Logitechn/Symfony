@@ -1,0 +1,17 @@
+_app:
+    resource: "@AppBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:    /app
+_Main:
+    resource: "@AppBundle/Controller/MainController.php"
+    type:     annotation
+    prefix:    /
+_Playerslist:
+    path:     /Playerslist
+    defaults: { _controller: AppBundle:Main:index }
+_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AppBundle:Edit:Edit }
+_index:
+    path:     /delete/{id}
+    defaults: { _controller: AppBundle:Delete:index }

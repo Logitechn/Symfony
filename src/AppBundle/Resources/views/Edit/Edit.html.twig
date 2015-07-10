@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Krepšininko duomenu redagavimas {% endblock %}
+
+{% block body %}
+    {{ form_start(form, {att: {novalidate: 'novalidate'}}) }}
+        {{ form_row(form.name) }}</td>
+        {{ form_row(form.surname) }}</td>
+        {{ form_row(form.birthYears) }}</td>
+        {{ form_row(form.shirtNumber) }}</td>
+    {{ form_end(form) }}
+    <a href="/">Back</a>
+{% endblock %}

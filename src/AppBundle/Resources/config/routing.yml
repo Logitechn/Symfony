@@ -1,0 +1,11 @@
+_index:
+    path:     /index
+    defaults: { _controller: AppBundle:Main:index }
+
+_edit:
+    path:     /Edit
+    defaults: { _controller: AppBundle:Edit:Edit }
+
+index:
+    path:     /index
+    defaults: { _controller: AppBundle:Delete:index }

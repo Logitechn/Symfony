@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Krepšininku registracija!{% endblock %}</title>
+        
+        
+    </head>
+    <body>
+        <h1>  Krepšininku registracija </h1>
+        {% set number = 0 %}
+        <div class="container">
+            {{ form_start(form, {att: {novalidate: 'novalidate'}}) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.surname) }}
+                {{ form_row(form.birthYears) }}
+                {{ form_row(form.shirtNumber) }}
+            {{ form_end(form) }}
+        </div>
+        <table>
+            <tr>
+                <th>Eil. Numeris</th>
+                <th>Krepšininko vardas</th>
+                <th>Krepšininko pavardė</th>
+                <th>Gimimo data</th>
+                <th>Marškineliu numeris</th>
+                <th>  </th>
+                <th>  </th>
+            </tr>
+            {% if players | length > 0 %}
+                {% for i in players %}
+                    {% set number = number + 1 %}
+                    <tr>
+                        <h4><td> {{ number }} </td>
+                        <td> {{ i.name }} </td>
+                        <td> {{i.surname}} </td>
+                        <td> {{i.birthYears is empty ? "": i.birthYears|date('Y-m-d')}} </td>
+                        <td> {{i.shirtNumber}} </td></h4>
+                        <td><a href="{{ path('_edit', {'id': i.id}) }}">Edit</a></td>
+                        <td><a href="{{ path('_index', {'id': i.id}) }}">Delete</a></td>                        
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </body>
+</html>
